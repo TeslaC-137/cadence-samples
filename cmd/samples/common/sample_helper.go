@@ -55,7 +55,7 @@ func (h *SampleHelper) SetupServiceConfig() {
 	
 	h.Config.Domain = os.GetEnv("DOMAIN_NAME")
 	h.Config.ServiceName = os.GetEnv("SERVICE_NAME")
-	h.Config.HostNameAndPort = os.GetEnv("HOST")
+	h.Config.HostNameAndPort = os.GetEnv("HOSTANDPORT")
 	
 	logger.Info(h.Config.HostNameAndPort)
 
