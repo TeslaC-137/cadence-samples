@@ -1,6 +1,7 @@
 package common
 
 import (
+	"os"
 	"context"
 	"fmt"
 	"io/ioutil"
@@ -55,6 +56,8 @@ func (h *SampleHelper) SetupServiceConfig() {
 	h.Config.Domain = os.GetEnv("DOMAIN_NAME")
 	h.Config.ServiceName = os.GetEnv("SERVICE_NAME")
 	h.Config.HostNameAndPort = os.GetEnv("HOST")
+	
+	fmt.PrintLn(h.Config.HostNameAndPort)
 
 	// Initialize logger for running samples
 	logger, err := zap.NewDevelopment()
