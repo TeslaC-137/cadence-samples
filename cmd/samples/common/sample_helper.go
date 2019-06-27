@@ -57,7 +57,7 @@ func (h *SampleHelper) SetupServiceConfig() {
 	h.Config.ServiceName = os.GetEnv("SERVICE_NAME")
 	h.Config.HostNameAndPort = os.GetEnv("HOST")
 	
-	fmt.PrintLn(h.Config.HostNameAndPort)
+	logger.Info(h.Config.HostNameAndPort)
 
 	// Initialize logger for running samples
 	logger, err := zap.NewDevelopment()
