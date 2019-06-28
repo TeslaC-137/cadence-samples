@@ -49,15 +49,10 @@ func (h *SampleHelper) SetupServiceConfig() {
 		panic(fmt.Sprintf("Failed to log config file: %v, Error: %v", configFile, err))
 	}
 
-	//if err := yaml.Unmarshal(configData, &h.Config); err != nil {
-	//	panic(fmt.Sprintf("Error initializing configuration: %v", err))
-	//}
+	if err := yaml.Unmarshal(configData, &h.Config); err != nil {
+		panic(fmt.Sprintf("Error initializing configuration: %v", err))
+	}
 	
-	h.Config.Domain = os.GetEnv("DOMAIN_NAME")
-	h.Config.ServiceName = os.GetEnv("SERVICE_NAME")
-	h.Config.HostNameAndPort = os.GetEnv("HOSTANDPORT")
-	
-	logger.Info(h.Config.HostNameAndPort)
 
 	// Initialize logger for running samples
 	logger, err := zap.NewDevelopment()
